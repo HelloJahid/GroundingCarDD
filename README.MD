@@ -38,6 +38,35 @@ We introduce **GroundingCarDD**, a **text-guided multimodal phrase grounding fra
 
 
 
+### Model Contributions  
+
+1. **Expanded Dataset**  
+   - Curated a private dataset and combined it with the public CarDD dataset  
+   - Manually corrected bounding box annotations and added detailed image captions  
+   - Improved detection accuracy for small damages in complex scenarios  
+
+2. **Enhanced Image-Text Correlation**  
+   - Introduced phrase grounding object detection to fuse **visual** and **textual** data  
+   - Enabled better contextual understanding of damage by linking descriptions with visual regions  
+
+3. **Improved Localization and Segmentation**  
+   - Integrated the **Segment Anything Model 2 (SAM2)** with GroundingCarDD  
+   - Achieved refined pixel-level segmentation of damaged areas within bounding boxes  
+   - Distinguished between superficial and structural damages for better repair assessment  
+
+4. **Custom Car-Specific Model Enhancements** ⚙️  
+   - Developed **damage-specific feature extractors** using Swin Transformer for fine-grained details (scratches, dents, broken parts)  
+   - Added **hierarchical feature aggregation** and **multi-scale fusion** with pyramid pooling to capture damage at different scales  
+
+5. **Advanced Cross-Modal Attention Mechanisms** 🎯  
+   - Designed **dynamic attention weights** to emphasise critical words in textual descriptions  
+   - Applied **context-aware attention** that aligns text with relevant car regions, improving accuracy in challenging conditions  
+
+
+
+⚠️ **Note:**  The **enhancement code** (including *Car-Specific Model Enhancements* and *Advanced Cross-Modal Attention Mechanisms*) is **available only upon request**. Please contact the authors if you wish to access it.  
+
+
 ---
 
 ## 📊 Key Results  
@@ -228,6 +257,7 @@ torchrun --nproc_per_node=${GPU_NUM} main.py \
 chmod +x train.sh
 ./train.sh
 ```
+
 
 ---
 
