@@ -229,3 +229,12 @@ chmod +x train.sh
 ./train.sh
 ```
 
+---
+
+## 🙏 Acknowledgements  
+
+> Special thanks to the amazing open-source projects that inspired and supported this work:  
+> - [GroundingDINO](https://github.com/IDEA-Research/GroundingDINO)  
+> - [Open-GroundingDINO](https://github.com/longzw1997/Open-GroundingDino)  
+
+Your contributions have made **GroundingCarDD** possible.  
