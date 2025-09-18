@@ -54,11 +54,11 @@ We introduce **GroundingCarDD**, a **text-guided multimodal phrase grounding fra
    - Achieved refined pixel-level segmentation of damaged areas within bounding boxes  
    - Distinguished between superficial and structural damages for better repair assessment  
 
-4. **Custom Car-Specific Model Enhancements** ⚙️  
+4. **Custom Car-Specific Model Enhancements** ⚙ 
    - Developed **damage-specific feature extractors** using Swin Transformer for fine-grained details (scratches, dents, broken parts)  
    - Added **hierarchical feature aggregation** and **multi-scale fusion** with pyramid pooling to capture damage at different scales  
 
-5. **Advanced Cross-Modal Attention Mechanisms** 🎯  
+5. **Advanced Cross-Modal Attention Mechanisms** 
    - Designed **dynamic attention weights** to emphasise critical words in textual descriptions  
    - Applied **context-aware attention** that aligns text with relevant car regions, improving accuracy in challenging conditions  
 
@@ -82,7 +82,7 @@ On the public **CarDD dataset**:
 
 ---
 
-## 🌍 Impact  
+##  Impact  
 GroundingCarDD has the potential to transform the automotive industry by:  
 - ✅ Enabling **automated and accurate car damage assessment**  
 - ✅ Improving **insurance claims transparency**  
@@ -144,7 +144,14 @@ wget https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alp
 - In dictionary form, indices start from "0" (it is essential to start from 0 to accommodate caption/grounding data). 
 
 ```json
-{"0": "wheel", "1": "carlight", "2" : "car"}
+{
+  "0": "dent",
+  "1": "scratch",
+  "2": "crack",
+  "3": "glass shatter",
+  "4": "lamp broken",
+  "5": "tire flat"
+}
 ```
 
 
@@ -160,41 +167,48 @@ The files are in jsonl format, with one json object per line, as follows:
       "width": 512,
       "height": 512
     },
-    "caption": "This image displays a car with key vehicle components such as carlights, wheels, and other body parts.",
+    "caption": "This image displays a car with annotated damage classes.",
     "objects": [
       {
-        "bbox": [114.0, 231.0, 230.0, 247.0],
-        "label": 1,
-        "category": "carlight",
-        "phrase": "Headlight, clearly visible on the car."
-      },
-      {
-        "bbox": [382.0, 180.0, 405.0, 193.0],
-        "label": 1,
-        "category": "carlight",
-        "phrase": "Rear car light, clearly visible on the car."
-      },
-      {
-        "bbox": [63.0, 256.0, 163.0, 338.0],
         "label": 0,
-        "category": "wheel",
-        "phrase": "Noticeable wheel present on the car"
+        "category": "dent",
+        "phrase": "Dent visible on the front-right fender.",
+        "bbox": [431, 77, 492, 182]
       },
       {
-        "bbox": [1.0, 148.0, 503.0, 338.0],
-        "label": 2,
-        "category": "car",
-        "phrase": "The car is clearly visible."
+        "label": 1,
+        "category": "scratch",
+        "phrase": "Scratch observed along the left-side door panel.",
+        "bbox": [264, 345, 368, 426]
       },
       {
-        "bbox": [278.0, 158.0, 501.0, 213.0],
         "label": 2,
-        "category": "car",
-        "phrase": "The car is clearly visible."
+        "category": "crack",
+        "phrase": "Crack appearing on the rear bumper surface.",
+        "bbox": [372, 49, 467, 109]
+      },
+      {
+        "label": 3,
+        "category": "glass shatter",
+        "phrase": "Glass shatter evident on the front windshield.",
+        "bbox": [205, 388, 313, 500]
+      },
+      {
+        "label": 4,
+        "category": "lamp broken",
+        "phrase": "Broken lamp detected on the right headlight.",
+        "bbox": [379, 308, 460, 415]
+      },
+      {
+        "label": 5,
+        "category": "tire flat",
+        "phrase": "Flat tire identified on the rear-left wheel.",
+        "bbox": [171, 456, 243, 512]
       }
     ]
   }
 ]
+
 .
 .
 .
