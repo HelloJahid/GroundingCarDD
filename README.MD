@@ -261,11 +261,11 @@ nano train.sh
 GPU_NUM=4
 
 torchrun --nproc_per_node=${GPU_NUM} main.py \
-    --output_dir /home/ubuntu/Open-GroundingDino/finetune_weight \
+    --output_dir /home/ubuntu/GroundingCarDD/finetune_weight \
     -c config/cfg_odvg.py \
     --datasets config/data_path.json \
-    --pretrain_model_path /home/ubuntu/Open-GroundingDino/groundingdino_swint_ogc.pth \
-    --options text_encoder_type=/home/ubuntu/Open-GroundingDino/bert-base-uncased
+    --pretrain_model_path /home/ubuntu/GroundingCarDD/groundingdino_swint_ogc.pth \
+    --options text_encoder_type=/home/ubuntu/GroundingCarDD/bert-base-uncased
 ```
 ```bash
 chmod +x train.sh
